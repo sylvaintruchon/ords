@@ -11,7 +11,7 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
     ORDS_CONF="/u01/config/ords" \
     JAVA_HOME="/u01/java/latest" \
     JAVA_EXTRACT_DIR="/u01/java" \
-    OS_PACKAGE="unzip tar gzip freetype fontconfig ncurses shadow-utils vi"
+    OS_PACKAGE="unzip-6.0-46.0.1.el8 tar-2:1.30-9.el8 gzip-1.9-13.el8_5 freetype-2.9.1-9.el8 fontconfig-2.13.1-4.el8 ncurses-6.1-10.20180224.el8 shadow-utils-2:4.6-19.el8 vim-minimal-2:8.0.1763-19.0.1.el8_6.4"
 
 ## À configurer lors du démarrage du container.
 #ENV DB_HOSTNAME="" \
@@ -29,7 +29,6 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
 
 # Install OS Packages
 RUN microdnf install -y $OS_PACKAGE && \
-    microdnf update -y && \
     rm -Rf /var/cache/yum /var/cache/dnf
 
 
