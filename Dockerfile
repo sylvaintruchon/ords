@@ -6,7 +6,6 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
     JAVA_DOWNLOAD_PATH_NAME="/tmp/java.tar.gz" \
     ORDS_DOWNLOAD_URL="https://download.oracle.com/otn_software/java/ords/ords-23.1.4.150.1808.zip" \
     ORDS_DOWNLOAD_PATH_NAME="/tmp/ords.zip" \
-    SOFTWARE_DIR="/u01/software" \
     SCRIPTS_DIR="/u01/scripts" \
     ORDS_HOME="/u01/ords" \
     ORDS_CONF="/u01/config/ords" \

@@ -11,15 +11,18 @@ if [ ! -f $TEMOIN ]; then
 
   $ORDS_HOME/bin/ords --config $ORDS_CONF install \
                       --log-folder $ORDS_CONF/logs \
-		      --admin-user SYS \
-		      --proxy-user \
-		      --db-hostname $DB_HOSTNAME \
-		      --db-port $DB_PORT \
-		      --db-servicename $DB_SERVICE \
-		      --feature-rest-enabled-sql true \
-		      --feature-sdw false \
-		      --schema-tablespace $ORDS_TABLESPACE \
-		      --password-stdin <<EOF
+                      --admin-user SYS \
+                      --proxy-user \
+                      --proxy-user-tablespace $ORDS_TABLESPACE \
+                      --proxy-user-temp-tablespace $TEMP_TABLESPACE \
+                      --db-hostname $DB_HOSTNAME \
+                      --db-port $DB_PORT \
+                      --db-servicename $DB_SERVICE \
+                      --feature-rest-enabled-sql true \
+                      --feature-sdw false \
+                      --schema-tablespace $ORDS_TABLESPACE \
+                      --schema-temp-tablespace $TEMP_TABLESPACE \
+                      --password-stdin <<EOF
 $SYS_PASSWORD
 $ORDS_PUBLIC_PASSWORD
 EOF
