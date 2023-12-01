@@ -24,7 +24,7 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
 #    ORDS_CONTEXT_PATH="" \
 #    JDBC_INITIAL_LIMIT="5" \
 #    JDBC_MAX_LIMIT="20" \
-#    JAVA_OPTS="-Xms512M -Xmx768M"
+#    JAVA_TOOL_OPTIONS="-Xms512M -Xmx768M"
 
 
 # Install OS Packages

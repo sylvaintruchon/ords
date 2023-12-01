@@ -40,6 +40,5 @@ EOF
 fi
 
 echo "Starting ords in standalone mode"
-export _JAVA_OPTIONS="$JAVA_OPTS"
 
 $ORDS_HOME/bin/ords --config $ORDS_CONF serve
