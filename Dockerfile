@@ -14,7 +14,7 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
     OS_PACKAGE="unzip-6.0-46.0.1.el8 tar-2:1.30-9.el8 gzip-1.9-13.el8_5 freetype-2.9.1-9.el8 fontconfig-2.13.1-4.el8 ncurses-6.1-10.20180224.el8 shadow-utils-2:4.6-19.el8 vim-minimal-2:8.0.1763-19.0.1.el8_6.4"
 
 ## À configurer lors du démarrage du container.
-#ENV DB_HOSTNAME="" \
+#    DB_HOSTNAME="" \
 #    DB_PORT="" \
 #    DB_SERVICE="" \
 #    ORDS_TABLESPACE="" \
@@ -23,8 +23,10 @@ ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d098574
 #    SYS_PASSWORD="" \
 #    ORDS_CONTEXT_PATH="" \
 #    JDBC_INITIAL_LIMIT="5" \
-#    JDBC_MAX_LIMIT="20" \
-#    JAVA_TOOL_OPTIONS="-Xms512M -Xmx768M"
+#    JDBC_MAX_LIMIT="20"
+
+## Autre variable d'environnement à configurer (facultatif)
+#    JAVA_TOOL_OPTIONS="-Xms512M -Xmx768M"       # Par défaut, les JVM récentes détectent la mémoire du container.
 
 
 # Install OS Packages
