@@ -3,6 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+    tags: [ "v*.*.*" ] # Déclenche le workflow lors de la création d'un tag (ex: v1.0.0)
   pull_request:
     branches: [ "main" ]
 
@@ -20,8 +21,25 @@ jobs:
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_TOKEN }}
 
+      # Génération dynamique des tags Docker en fonction de l'événement Git
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: sylvaintruchon/ords
+          tags: |
+            # Crée le tag 'latest' pour les pushs sur main et les tags Git
+            type=raw,value=latest,enable=${{ github.ref_type == 'branch' || github.ref_type == 'tag' }}
+            # Crée un tag Docker spécifique si c'est un tag Git (ex: v1.0.0)
+            type=ref,event=tag
+            # Optionnel : Crée un tag temporaire unique pour les Pull Requests (ex: pr-42)
+            type=ref,event=pr
+
+      # Compilation et publication avec les tags générés dynamiquement
       - name: Build and publish image
         uses: docker/build-push-action@v5
         with:
+          context: .
           push: true
-          tags: sylvaintruchon/ords:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
