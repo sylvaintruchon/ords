@@ -8,11 +8,20 @@ on:
 
 jobs:
 
-  build:
-
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sylvaintruchon/ords:$(date +%s)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Connect to registry
+        uses: docker/login-action@v3
+        with:
+          username: $\{\{ secrets.REGISTRY_USER \}\}
+          password: $\{\{ secrets.REGISTRY_TOKEN \}\}
+
+      - name: Build and publish image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: sylvaintruchon/ords:latest
