@@ -2,9 +2,9 @@ FROM oraclelinux:8-slim
 
 LABEL maintainer="sylvain.truchon.inspq@gmail.com"
 
-ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz" \
+ENV JAVA_DOWNLOAD_URL="https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-x64_bin.tar.gz" \
     JAVA_DOWNLOAD_PATH_NAME="/tmp/java.tar.gz" \
-    ORDS_DOWNLOAD_URL="https://download.oracle.com/otn_software/java/ords/ords-23.1.4.150.1808.zip" \
+    ORDS_DOWNLOAD_URL="https://download.oracle.com/otn_software/java/ords/ords-26.1.2.140.1916.zip" \
     ORDS_DOWNLOAD_PATH_NAME="/tmp/ords.zip" \
     SCRIPTS_DIR="/u01/scripts" \
     ORDS_HOME="/u01/ords" \
